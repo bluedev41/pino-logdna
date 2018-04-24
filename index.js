@@ -20,9 +20,12 @@ var logLevelTransformer = through.obj(function (chunk, enc, cb) {
   if (chunk.level) {
     chunk = Object.assign({},chunk,{
       level: levels[chunk.level] || chunk.level,
-      message: chunk.msg
+      message: chunk.msg,
+      timestamp: new Date(chunk.time)
     })
+
     delete chunk['msg']
+    delete chunk['time']
   }
 
   console.log(JSON.stringify(chunk))
