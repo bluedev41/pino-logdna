@@ -22,7 +22,7 @@ var logLevelTransformer = through.obj(function (chunk, enc, cb) {
       level: levels[chunk.level] || chunk.level,
       message: chunk.msg
     })
-    delete chunk[msg]
+    delete chunk['msg']
   }
 
   console.log(JSON.stringify(chunk))

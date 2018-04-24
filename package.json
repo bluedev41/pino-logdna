@@ -1,6 +1,6 @@
 {
   "name": "pino-logdna-formatter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Pierre-Alexandre St-Jean <pa@pleo.io>",
   "license": "MIT",
   "description": "Formats pino messages to be used with logdna",
