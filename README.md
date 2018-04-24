@@ -1,14 +1,12 @@
-# pino-text-level-transport
+# pino-logdna-formatter
 
-This is a tranport for pino that transforms the "level" field into a string.
-
-It is useful for logging platforms such as [logdna](logdna.com) that only
-supports having the level field as string.
+This is a tranport for pino that transforms the `level` field into a string and renames the
+`msg` field into `message`. This format is required in [logdna](logdna.com).
 
 ## Usage
 
 ```sh
-npm install pino-text-level-transport
+npm install pino-logdna-formatter
 ```
 
 And in your package.json 
@@ -18,7 +16,7 @@ And in your package.json
     ...
     "scripts":{
         ...
-        "start": "node yourprocess.js |pino-text-level-transport"
+        "start": "node yourprocess.js | pino-logdna-formatter"
     },
     ...
 }
