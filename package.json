@@ -1,0 +1,31 @@
+{
+  "name": "pino-logdna-formatter",
+  "version": "1.0.-",
+  "author": "Pierre-Alexandre St-Jean <pa@pleo.io>",
+  "license": "MIT",
+  "description": "Formats pino messages to be used with logdna",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pastjean/pino-logdna-formatter.git"
+  },
+  "keywords": [
+    "pino",
+    "pinojs",
+    "logger",
+    "logdna",
+    "tranformer"
+  ],
+  "main": "index.js",
+  "bin": {
+    "pino-logdna-formatter": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "private": false,
+  "dependencies": {
+    "pump": "3.0.0",
+    "split2": "2.2.0",
+    "through2": "2.0.3"
+  }
+}
