@@ -16,6 +16,11 @@ var levels = {
 }
 
 var logLevelTransformer = through.obj(function (chunk, enc, cb) {
+  if (typeof chunk === 'string') {
+    console.log(chunk);
+    cb();
+    return;
+  }
 
   if (chunk.level) {
     chunk = Object.assign({},chunk,{
@@ -32,4 +37,18 @@ var logLevelTransformer = through.obj(function (chunk, enc, cb) {
   cb()
 })
 
-pump(process.stdin, split(JSON.parse), logLevelTransformer)
+/**
+ * Parse as JSON if it is JSON, otherwise just return it.
+ */
+function tryParseJSON(s) {
+  try {
+    return JSON.parse(s);
+  } catch (e) {
+    if (e.name === 'SyntaxError') {
+      return s;
+    }
+    throw e;
+  }
+}
+
+pump(process.stdin, split(tryParseJSON), logLevelTransformer)
