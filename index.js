@@ -33,7 +33,7 @@ var logLevelTransformer = through.obj(function (chunk, enc, cb) {
     delete chunk['time']
   }
 
-  console.log(JSON.stringify(chunk))
+  console.log(chunk);
   cb()
 })
 
